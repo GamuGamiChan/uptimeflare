@@ -12,6 +12,10 @@ const pageConfig: PageConfig = {
   links: [
     { link: "mailto:game@thapat.me", label: "Email", highlight: true },
   ],
+  group: {
+    "Not Self Hosted": ["web_main", "blog", "nest"],
+    "Hosted on Pi 5": ["blog", "pi_dash", "files", "web_mail", "wavelog"],
+  },
 }
 
 const workerConfig: WorkerConfig = {
@@ -53,6 +57,47 @@ const workerConfig: WorkerConfig = {
       // [OPTIONAL] if true, the check will fallback to local if the specified proxy is down
       // checkProxyFallback: true,
     },
+    {
+      id: "blog",
+      name: "Personal blog",
+      method: "GET",
+      target: "https://blog.thapat.me",
+      // tooltip: "",
+      statusPageLink: "https://blog.thapat.me",
+    },
+    {
+      id: "pi_dash",
+      name: "Pi's dashboard",
+      method: "GET",
+      target: "https://pistatus.thapat.me",
+      // tooltip: "",
+      statusPageLink: "https://pistatus.thapat.me",
+    },
+    {
+      id: "files",
+      name: "Personal file host",
+      method: "GET",
+      target: "https://cdn.thapat.me",
+      // tooltip: "",
+      statusPageLink: "https://cdn.thapat.me",
+    },
+    {
+      id: "web_mail",
+      name: "Mail web UI",
+      method: "GET",
+      target: "https://mail.thapat.me",
+      // tooltip: "",
+      statusPageLink: "https://mail.thapat.me",
+    },
+    {
+      id: "wavelog",
+      name: "Game's Wavelog instance",
+      method: "GET",
+      target: "https://wavelog.thapat.me",
+      tooltip: "My personal HAM radio logbook, used for logbook sharing.",
+      statusPageLink: "https://wavelog.thapat.me",
+    },
+    
     // Example TCP Monitor
     {
       id: "nest",
@@ -61,7 +106,7 @@ const workerConfig: WorkerConfig = {
       method: "TCP_PING",
       // `target` should be `host:port` for tcp monitors
       target: "65.109.40.171:22",
-      tooltip: "Hack Club's public server for teenagers. Some stuff is hosted there.",
+      tooltip: "Hack Club's public server for teenagers. Some old forgotten stuff is hosted there. Goes down regularly.",
       statusPageLink: "https://hackclub.app",
       timeout: 30000,
     },
