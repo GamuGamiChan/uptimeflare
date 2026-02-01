@@ -3,14 +3,14 @@
 // For a full-featured example, please refer to `uptime.config.full.ts`
 
 // Don't edit this line
-import { MaintenanceConfig, PageConfig, WorkerConfig } from './types/config'
+import { MaintenanceConfig, PageConfig, WorkerConfig } from "./types/config"
 
 const pageConfig: PageConfig = {
   // Title for your status page
   title: "Game's Services",
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
-    { link: 'mailto:game@thapat.me', label: 'Email', highlight: true },
+    { link: "mailto:game@thapat.me", label: "Email", highlight: true },
   ],
 }
 
@@ -20,49 +20,49 @@ const workerConfig: WorkerConfig = {
     // Example HTTP Monitor
     {
       // `id` should be unique, history will be kept if the `id` remains constant
-      id: 'web_main',
+      id: "web_main",
       // `name` is used at status page and callback message
-      name: 'Personal Site',
+      name: "Personal Site",
       // `method` should be a valid HTTP Method
-      method: 'GET',
+      method: "GET",
       // `target` is a valid URL
-      target: 'https://thapat.me',
+      target: "https://thapat.me",
       // [OPTIONAL] `tooltip` is ONLY used at status page to show a tooltip
-      tooltip: 'Unmaintained. 404 will be considered up.',
+      tooltip: "Unmaintained. 404 will be considered up.",
       // [OPTIONAL] `statusPageLink` is ONLY used for clickable link at status page
-      statusPageLink: 'https://thapat.me',
+      statusPageLink: "https://thapat.me",
       // [OPTIONAL] `expectedCodes` is an array of acceptable HTTP response codes, if not specified, default to 2xx
       expectedCodes: [200,404],
       // [OPTIONAL] `timeout` in millisecond, if not specified, default to 10000
       //timeout: 10000,
       // [OPTIONAL] headers to be sent
       //headers: {
-      //  'User-Agent': 'Uptimeflare',
-      //  Authorization: 'Bearer YOUR_TOKEN_HERE',
+      //  "User-Agent": "Uptimeflare",
+      //  Authorization: "Bearer YOUR_TOKEN_HERE",
       //},
       // [OPTIONAL] body to be sent (require POST/PUT/PATCH method)
-      // body: 'Hello, world!',
+      // body: "Hello, world!",
       // [OPTIONAL] if specified, the response must contains the keyword to be considered as operational.
-      // responseKeyword: 'success',
+      // responseKeyword: "success",
       // [OPTIONAL] if specified, the response must NOT contains the keyword to be considered as operational.
-      // responseForbiddenKeyword: 'bad gateway',
+      // responseForbiddenKeyword: "bad gateway",
       // [OPTIONAL] if specified, will call the check proxy to check the monitor, mainly for geo-specific checks
       // refer to docs https://github.com/lyc8503/UptimeFlare/wiki/Check-proxy-setup before setting this value
       // currently supports `worker://`, `globalping://` and `http(s)://` proxies
-      // checkProxy: 'worker://weur',
+      // checkProxy: "worker://weur",
       // [OPTIONAL] if true, the check will fallback to local if the specified proxy is down
       // checkProxyFallback: true,
     },
     // Example TCP Monitor
     {
-      id: 'nest',
+      id: "nest",
       name: "Hack Club's Nest",
       // `method` should be `TCP_PING` for tcp monitors
-      method: 'TCP_PING',
+      method: "TCP_PING",
       // `target` should be `host:port` for tcp monitors
-      target: '65.109.40.171:22',
-      tooltip: 'Hack Club's public server for teenagers. Some stuff is hosted there.',
-      statusPageLink: 'https://hackclub.app',
+      target: "65.109.40.171:22",
+      tooltip: "Hack Club's public server for teenagers. Some stuff is hosted there.",
+      statusPageLink: "https://hackclub.app",
       timeout: 30000,
     },
   ],
@@ -74,30 +74,30 @@ const workerConfig: WorkerConfig = {
     // More info at Wiki: https://github.com/lyc8503/UptimeFlare/wiki/Setup-notification
     webhook: {
       // [Required] webhook URL (example: Telegram Bot API)
-      url: 'https://api.telegram.org/bot123456:ABCDEF/sendMessage',
-      // [Optional] HTTP method, default to 'GET' for payloadType=param, 'POST' otherwise
-      // method: 'POST',
+      url: "https://api.telegram.org/bot123456:ABCDEF/sendMessage",
+      // [Optional] HTTP method, default to "GET" for payloadType=param, "POST" otherwise
+      // method: "POST",
       // [Optional] headers to be sent
       // headers: {
-      //   foo: 'bar',
+      //   foo: "bar",
       // },
       // [Required] Specify how to encode the payload
-      // Should be one of 'param', 'json' or 'x-www-form-urlencoded'
-      // 'param': append url-encoded payload to URL search parameters
-      // 'json': POST json payload as body, set content-type header to 'application/json'
-      // 'x-www-form-urlencoded': POST url-encoded payload as body, set content-type header to 'x-www-form-urlencoded'
-      payloadType: 'x-www-form-urlencoded',
+      // Should be one of "param", "json" or "x-www-form-urlencoded"
+      // "param": append url-encoded payload to URL search parameters
+      // "json": POST json payload as body, set content-type header to "application/json"
+      // "x-www-form-urlencoded": POST url-encoded payload as body, set content-type header to "x-www-form-urlencoded"
+      payloadType: "x-www-form-urlencoded",
       // [Required] payload to be sent
       // $MSG will be replaced with the human-readable notification message
       payload: {
         chat_id: 12345678,
-        text: '$MSG',
+        text: "$MSG",
       },
       // [Optional] timeout calling this webhook, in millisecond, default to 5000
       timeout: 10000,
     },
     // [Optional] timezone used in notification messages, default to "Etc/GMT"
-    timeZone: 'Asia/Shanghai',
+    timeZone: "Asia/Shanghai",
     // [Optional] grace period in minutes before sending a notification
     // notification will be sent only if the monitor is down for N continuous checks after the initial failure
     // if not specified, notification will be sent immediately
@@ -117,25 +117,24 @@ const workerConfig: WorkerConfig = {
 const maintenances: MaintenanceConfig[] = [
 
   /*
-  
   {
     // [Optional] Monitor IDs to be affected by this maintenance
-    monitors: ['foo_monitor', 'bar_monitor'],
+    monitors: ["foo_monitor", "bar_monitor"],
     // [Optional] default to "Scheduled Maintenance" if not specified
-    title: 'Test Maintenance',
+    title: "Test Maintenance",
     // Description of the maintenance, will be shown at status page
-    body: 'This is a test maintenance, server software upgrade',
+    body: "This is a test maintenance, server software upgrade",
     // Start time of the maintenance, in UNIX timestamp or ISO 8601 format
-    start: '2020-01-01T00:00:00+08:00',
+    start: "2020-01-01T00:00:00+08:00",
     // [Optional] end time of the maintenance, in UNIX timestamp or ISO 8601 format
     // if not specified, the maintenance will be considered as on-going
-    end: '2050-01-01T00:00:00+08:00',
+    end: "2050-01-01T00:00:00+08:00",
     // [Optional] color of the maintenance alert at status page, default to "yellow"
-    color: 'blue',
+    color: "blue",
   },
 
-*/
-  
+  */
+
 ]
 
 // Don't edit this line
