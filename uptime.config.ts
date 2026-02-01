@@ -14,7 +14,7 @@ const pageConfig: PageConfig = {
   ],
   group: {
     "Not Self Hosted": ["web_main", "blog", "nest"],
-    "Hosted on Pi 5": ["blog", "pi_dash", "files", "web_mail", "wavelog"],
+    "Hosted on Pi 5": ["pi_dash", "files", "web_mail", "wavelog"],
   },
 }
 
